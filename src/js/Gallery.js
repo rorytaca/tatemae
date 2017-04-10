@@ -20,15 +20,20 @@ class GalleryModal extends React.Component {
     }
     
     return(
-      <div isOpen={this.props.isOpen} className='modal-overlay' onClick={this.props.onClick} name={this.props.name}>
-        <div className='modal-body'>
-          <a className='modal-close' href='#' onClick={this.props.onClick}><span className='fa fa-times'></span></a>
-          
+      <div isOpen={this.props.isOpen} className='modal-overlay' name={this.props.name}>
+        <div className='modal-body'>          
           <img src={this.props.src} />
+        </div>
+        <a className='modal-close' href='#' onClick={this.props.onClick}><span className='fa fa-times'></span></a>
+        <div className='modal-controls'>
+          <a className='modal-arrow left' href="#" onClick={this.props.onClickLeft}><span className='fa fa-arrow-circle-left'></span></a>
+          <a className='modal-arrow right' href="#" onClick={this.props.onClickRight}><span className='fa fa-arrow-circle-right'></span></a>
         </div>
       </div>
     )
   }
+
+
 }
 
 class Gallery extends React.Component {
@@ -36,50 +41,21 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      url: ''
+      imgUrls: props.imgUrls,
+      currentIndex: null
     }
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.onClickLeft = this.onClickLeft.bind(this)
-    this.onClickRight = this.onClickLeft.bind(this)
+    this.slideLeft = this.slideLeft.bind(this)
+    this.slideRight = this.slideRight.bind(this)
   }
 
-  onClickLeft() {
-
-  }
- 
-  onClickRight() {
-
-  }
-
-render() {
-    return(
-      <div className='gallery-container'>
-        <div className='row'>
-          {
-            (this.props.imgUrls).map((url, index) => {
-               return <div className='col-sm-6 col-md-3 col-xl-2'>
-                  <div className='gallery-card'>
-                    <Image className='gallery-thumbnail' src={url} alt={'Image number ' + (index + 1)} />
-                    
-                    <span className='card-icon-open fa fa-expand' value={url} onClick={(e) => this.openModal(url, e)}></span>
-                  </div>
-                </div>
-             })
-           }
-        </div>
-        
-        <GalleryModal isOpen={this.state.showModal} onClick={this.closeModal} src={this.state.url} /> 
-      </div>
-    )
-  }
-  
-  // Function for opening modal dialog
-  openModal(url, e) {
+// Function for opening modal dialog
+  openModal(e, index) {
      this.setState({
        showModal: true,
-       url: url
+       currentIndex: index
      })
    };
 
@@ -87,8 +63,49 @@ render() {
   closeModal() {
     this.setState({
       showModal: false,
-      url: ''
     })
+  }
+
+  // Function for watching key presses
+  slideLeft() {
+    if ((this.state.currentIndex) > 0) {
+      this.setState({
+         currentIndex: this.state.currentIndex - 1
+      })
+    }
+  }
+
+  slideRight() {
+    if ((this.state.currentIndex) < this.state.imgUrls.length - 1) {
+      this.setState({
+         currentIndex: this.state.currentIndex + 1
+      })
+    }
+  }
+ 
+  render() {
+    return(
+      <div className='gallery-container'>
+        <div className='row'>
+          {
+            (this.state.imgUrls).map((url, index) => {
+               return <div className='col sm-half md-quarter xl-eigth'>
+                  <div className='gallery-item' onClick={(e) => this.openModal(e, index)}>
+                    <Image className='gallery-thumbnail' src={url} alt={'Image number ' + (index + 1)} />
+                  </div>
+                </div>
+             })
+           }
+        </div>
+        <GalleryModal 
+          isOpen={this.state.showModal} 
+          onClick={this.closeModal}
+          onClickLeft={this.slideLeft}
+          onClickRight={this.slideRight}
+          src={this.state.imgUrls[this.state.currentIndex]} 
+        /> 
+      </div>
+    )
   }
 }
 export default Gallery;

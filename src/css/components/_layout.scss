@@ -1,0 +1,286 @@
+/*
+ *  components/_layout.scss
+ *	
+ *	containers, rows, grid etc...
+ */
+
+/* basic page elements */
+html,
+body {
+	min-height: 100%;
+	height: 100%;
+}
+
+html {
+	font-size: $font-size;
+}
+
+body {
+  position: relative;
+  font-size: 100%;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+/* container elements */
+.container { 
+  display: block;
+  width: 90%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  clear: both;
+
+  @media screen and (min-width: 550px) {
+    width: 520px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }  
+
+  @media screen and (min-width: 980px) {
+    width: 940px;
+  }
+
+  @media screen and (min-width: 1250px) {
+    width: 1170px;
+  }  
+}
+
+/* Old style col grid */
+.row {
+	width: 100%;
+	height: auto;
+	clear: both;
+	
+	.col {
+		display: inline-block;
+	    box-sizing: border-box;
+	    padding: $col-padding;
+
+      /* Fractions grid system */
+	    &.xs-half {width: 50%;}
+	    &.xs-one {width: 100%;}
+
+	    @media screen and (min-width: 550px) {
+	      &.sm-quarter {width: 25%;}
+	      &.sm-third {  
+	        width: 33.33%; 
+	        width: calc(100% / 3);
+	      }
+	      &.sm-half {width: 50%;}
+	      &.sm-two-third {  
+	        width: 66.66%; 
+	        width: calc(100% / 3 * 2);
+	      }
+	      &.sm-three-quarter {width: 75%;}
+	      &.sm-one {width: 100%;}
+	    }
+
+	    @media screen and (min-width: 768px) {
+	      &.md-quarter {width: 25%;}
+	      &.md-third {  
+	        width: 33.33%; 
+	        width: calc(100% / 3);
+	      }
+	      &.md-half {width: 50%;}
+	      &.md-two-third {  
+	        width: 66.66%; 
+	        width: calc(100% / 3 * 2);
+	      }
+	      &.md-three-quarter {width: 75%;}
+	      &.md-one {width: 100%;}
+	    }  
+
+	    @media screen and (min-width: 980px) {
+	      &.lg-eigth {width: 12.5%; font-size: .5rem;}
+	      &.lg-quarter {width: 25%;}
+	      &.lg-third {  
+	        width: 33.33%; 
+	        width: calc(100% / 3);
+	      }
+	      &.lg-half {width: 50%;}
+	      &.lg-two-third {  
+	        width: 66.66%; 
+	        width: calc(100% / 3 * 2);
+	      }
+	      &.lg-three-quarter {width: 75%;}
+	      &.lg-one {width: 100%;}
+	    }
+
+	    @media screen and (min-width: 1250px) {
+	      &.xl-eigth {width: 12.5%;}
+	      &.xl-quarter {width: 25%;}
+	      &.xl-third {  
+	        width: 33.33%; 
+	        width: calc(100% / 3);
+	      }
+	      &.xl-half {width: 50%;}
+	      &.xl-two-third {  
+	        width: 66.66%; 
+	        width: calc(100% / 3 * 2);
+	      }
+	      &.xl-three-quarter {width: 75%;}
+	      &.xl-one {width: 100%;}
+	    }      
+	  }
+}
+
+/* Flex Grid */
+.flex-container {
+  display: -webkit-box;   /* OLD Browsers.  */
+  display: -moz-box;      
+  display: -ms-flexbox;   
+  display: -webkit-flex;  
+  display: flex;          /* NEW Browsers */
+
+  -webkit-flex-wrap: wrap; 
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: auto;
+}
+
+.flex {
+  &.one, &.two, &.three,
+  &.four, &.five, &.six,
+  &.seven, &.eight, &.nine,
+  &.ten, &.eleven, &.twelve  {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+
+  &.one {
+    -webkit-flex-basis: 8.3333%;
+    flex-basis: 8.3333%;
+    width: 8.3333%;
+  }
+
+  &.two {
+    -webkit-flex-basis: 16.6666%;
+    flex-basis: 16.6666%;
+    width: 16.6666%;
+  }
+
+  &.three {
+    -webkit-flex-basis: 25%;
+    flex-basis: 25%;
+    width: 25%;
+  }
+
+  &.four {
+    -webkit-flex-basis: 33.3333%;
+    flex-basis: 33.3333%;
+    width: 33.3333%;
+  }
+
+  &.five {
+    -webkit-flex-basis: 41.6666%;
+    flex-basis: 41.6666%;
+    width: 41.6666%;
+  }
+
+  &.six {
+    -webkit-flex-basis: 50%;
+    flex-basis: 50%;
+    width: 50%;
+  }
+
+  &.seven {
+    -webkit-flex-basis: 58.3333%;
+    flex-basis: 58.3333%;
+    width: 58.3333%;
+  }
+
+  &.eight {
+    -webkit-flex-basis: 66.6666%;
+    flex-basis: 66.6666%;
+    width: 66.6666%;
+  }
+
+  &.nine {
+    -webkit-flex-basis: 74.9999%;
+    flex-basis: 74.9999%;
+    width: 74.9999%;
+  }
+
+  &.ten {
+    -webkit-flex-basis: 83.3333%;
+    flex-basis: 83.3333%;
+    width: 83.3333%;
+  }
+
+  &.eleven {
+    -webkit-flex-basis: 91.6666%;
+    flex-basis: 91.6666%;
+    width: 91.6666%;
+  }
+
+  &.twelve {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  &.left {
+    -moz-box-pack: flex-start; 
+    -ms-flex-pack: flex-start; 
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  &.center {
+    -webkit-box-align: center; 
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-align-content: center;
+    align-items: center;
+    -moz-box-pack: space-around; 
+    -ms-flex-pack: space-around; 
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    align-self: center;
+    align-content: center;
+    margin: auto;
+  }
+
+  &.right {
+    -moz-box-pack: flex-end; 
+    -ms-flex-pack: flex-end; 
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    margin-right: 0;
+  }
+
+  &.top {
+    -webkit-box-align: flex-start; 
+    -moz-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    -webkit-align-items: flex-start;
+    -webkit-align-content: flex-start;
+    align-self: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  &.bottom {
+    -webkit-box-align: flex-end; 
+    -moz-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    -webkit-align-items: flex-end;
+    -webkit-align-content: flex-end;
+    align-self: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+  }
+}

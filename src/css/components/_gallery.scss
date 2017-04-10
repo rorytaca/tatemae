@@ -1,63 +1,30 @@
-// Main Sass file
-// Variables
+/*
+ *  components/_gallery.scss
+ *  
+ *  Image gallery, Video gallery, with modal 
+ */
 $black: #111;
 $radius: 4px;
-$transition: all .25s ease-in-out;
-
-html,
-body {
-  min-height: 100%;
-  height: 100%;
-}
-
-html {
-  font-size: 16px;
-}
-
-body {
-  position: relative;
-  font-size: 100%;
-}
 
 .gallery-container {
-  padding-top: .9375rem;
+  padding-top: 1rem;
 }
 
-.gallery-card {
+.gallery-item {
   position: relative;
   overflow: hidden;
-  margin-bottom: 1.875rem;
+  padding:0;
 }
 
 .gallery-thumbnail {
   max-width: 100%;
   height: auto;
   border-radius: $radius;
-}
-
-.card-icon-open {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 2rem;
-  color: #fff;
   cursor: pointer;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: $transition;
-  
-  &:focus,
-  &:hover {
-    color: $black;
-  }
 }
 
-.gallery-thumbnail:focus ~ .card-icon-open,
-.gallery-thumbnail:hover ~ .card-icon-open,
-.gallery-thumbnail ~ .card-icon-open:focus,
-.gallery-thumbnail ~ .card-icon-open:hover {
-  opacity: 1;
+.gallery-thumbnail:hover {
+  opacity: .5;
 }
 
 .modal-overlay {
@@ -94,5 +61,25 @@ body {
   &:focus,
   &:hover {
     color: #fff;
+  }
+}
+
+.modal-controls {
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 120px;
+
+  .modal-arrow {
+    color: white;
+    font-size: 3em;
+    padding-bottom: .12em;
+
+    &:hover {
+      color: #777;
+    }
   }
 }
