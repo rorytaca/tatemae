@@ -1,0 +1,28 @@
+/*
+ *  components/_nav.scss
+ *  
+ *  Responsive navbars, navigations, menus, etc...
+ */
+
+ ul { list-style: none; }
+
+.navigation {
+	list-style: none;
+	display: inline-block;
+
+	li { display: inline-block; }
+
+	.dropdown-toggle {
+		.dropdown-menu {display: none;}
+		&:after {
+			font-family: FontAwesome;
+			content: "\f107";
+			padding-left: 4px;
+		}
+		&:hover > .dropdown-menu { display: block; }
+		.dropdown-menu {
+			list-style: none;
+			position: absolute;
+		}
+	}
+}
