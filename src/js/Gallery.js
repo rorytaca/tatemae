@@ -1,18 +1,57 @@
 import React from 'react';
-
-/**
+import ReactDOM from 'react-dom';
+/*
  * Gallery: 
+ * 
+ * Standard photo gallery. Component is passed an array of Image urls via the "imgUrls" prop.
+ * The gallery uses an invisible 'lazy load' process to not render images until within browser viewport.
+ * TODO:: some issues with type='masonry' and the lazy load
+ *
  */
 
 class Image extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loader: '/img/misc/loader.gif',
+      offsetTop: 0,
+      showImage: false
+    }
+    this.initPosition = this.initPosition.bind(this);
+  }
+
+  componentDidMount() {
+    this.initPosition();
+  }
+
+  componentDidUpdate() {
+    if (this.state.showImage) {
+      return;
+    }
+    var top = this.state.offsetTop;
+    var min = this.props.viewport.top;
+    var max = this.props.viewport.top + this.props.viewport.height;
+    if (top > min && top < max) {
+      this.setState({showImage: true});
+    }
+  }
+
+  initPosition() {
+    var bounds = ReactDOM.findDOMNode(this).getBoundingClientRect();
+    this.setState({
+      offsetTop: bounds.top,
+    });
+  }
+
   render() {
+    var imgSrc = (this.state.showImage) ? this.props.src : this.state.loader;
+    var bg = {backgroundImage: 'url('+imgSrc+')'};
     return(
-      <img className={this.props.className} src={this.props.src} alt={this.props.alt} />
+      <div className="gallery-thumbnail" style={bg}></div>
     )
   }
 }
 
-// Component for gallery modal
 class GalleryModal extends React.Component {
   render() {
     if (this.props.isOpen === false) {
@@ -32,8 +71,6 @@ class GalleryModal extends React.Component {
       </div>
     )
   }
-
-
 }
 
 class Gallery extends React.Component {
@@ -42,9 +79,14 @@ class Gallery extends React.Component {
     this.state = {
       showModal: false,
       imgUrls: props.imgUrls,
-      currentIndex: null
+      currentIndex: null,
+      viewport: {
+        top: 0,
+        height: 0
+      }
     }
 
+    this.updateViewport = this.updateViewport.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.slideLeft = this.slideLeft.bind(this)
@@ -52,7 +94,27 @@ class Gallery extends React.Component {
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-// Function for opening modal dialog
+  componentDidMount() {
+    window.addEventListener('scroll', this.updateViewport, false);
+    window.addEventListener('resize', this.updateViewport, false);
+    this.updateViewport();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.updateViewport);
+    window.removeEventListener('resize', this.updateViewport);
+  }
+
+  updateViewport() {
+    this.setState({
+      viewport: {
+        top: window.pageYOffset,
+        height: window.innerHeight
+      }
+    });
+  }
+
+  // Function for opening modal dialog
   openModal(e, index) {
     if (!isMobileBrowser()) {
       this.setState({
@@ -101,10 +163,10 @@ class Gallery extends React.Component {
   render() {
     let wrapperClass = 'row';
     let itemClass = 'col sm-half md-third';
-    // if (this.props.type == 'masonry') {
-    //   wrapperClass = 'masonry';
-    //   itemClass = 'item'
-    // }
+    if (this.props.type == 'masonry') {
+      wrapperClass = 'masonry';
+      itemClass = 'item'
+    }
     return(
       <div className='gallery-container'           
            onKeyDown={this.handleKeyDown} 
@@ -114,7 +176,7 @@ class Gallery extends React.Component {
             (this.state.imgUrls).map((url, index) => {
                return <div className={itemClass}>
                   <div className='gallery-item' onClick={(e) => this.openModal(e, index)}>
-                    <Image className='gallery-thumbnail' src={url} alt={'Image number ' + (index + 1)} />
+                    <Image src={url} alt={'Image number ' + (index + 1)} viewport={this.state.viewport} />
                   </div>
                 </div>
              })
@@ -132,7 +194,7 @@ class Gallery extends React.Component {
 
 
 }
-
+//TODO::Move these into a util file
 /************************************************************************************
 ********************************  Utility functions *********************************
 ************************************************************************************/
