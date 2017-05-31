@@ -1,0 +1,99 @@
+/*
+ *  components/_carousel.scss
+ *  
+ *  Slide Carousels - passed an array of (custom) HTML slides
+ *
+ */
+
+.carousel {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 450px; /* todo: move to custom css sheet */
+
+	.inner-wrapper {
+		width: auto;
+		white-space: nowrap;
+		overflow: hidden;
+		height: 100%;
+	}
+
+	.carousel-slide {
+		width: 100%;
+		height:  100%;	
+	}
+
+	&.horizontal {
+		&.scrollable {
+			.inner-wrapper {
+				overflow-x: scroll;
+				overflow-y: hidden;
+				padding-bottom: 15px;
+			}
+		}
+		.carousel-slide {
+			display: inline-block;
+		}
+	}
+	&.vertical {
+		&.scrollable {
+			.inner-wrapper {
+				overflow-x: hidden;
+				overflow-y: scroll;
+				margin-right: -15px;
+			}
+		}
+		.carousel-slide {
+			display: block;
+		}
+	}
+}
+
+.nav-controls {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	top: 0; 
+	left: 0;
+	align-items: center;
+
+	.nav-bullets {
+		&.right { padding-right: 8px;}
+		&.bottom {
+			padding-bottom: 8px;
+			margin: 0 auto;
+
+			.bullet {
+				display: inline-block;
+			}
+		}
+
+		.bullet {
+			height: 12px;
+			width: 12px;
+			border-radius: 10px;
+			margin: 4px;
+			background: #fff;
+
+			&.active {
+				background: #3af;
+			}
+		}
+	}
+
+	.arrow {
+		align-items: center;
+		padding: .5em;
+		color: #fff;
+		cursor: pointer;
+
+		&:hover i {
+			color: #ccc;
+		}
+
+		i {
+			font-size: 2em;
+		}
+	}
+}

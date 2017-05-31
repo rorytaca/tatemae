@@ -13,17 +13,24 @@ $black: #111;
 }
 
 .gallery-item {
+  width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 0px 3px;
+  padding:0;
 }
 
 .gallery-thumbnail {
-  max-width: 100%;
-  height: auto;
+  width: 100vw;
   padding: 0; margin: 0;
-  border-radius: 1px;
+  border-radius: 2px;
   cursor: pointer;
+
+  height: 250px;
+  @media screen and (min-width: 550px) {height: 170px;}
+  @media screen and (min-width: 768px) {height: 200px;}
+  @media screen and (min-width: 980px) {height: 250px;}
+  @media screen and (min-width: 1250px) {height: 300px;}
+
 }
 
 .gallery-thumbnail:hover {

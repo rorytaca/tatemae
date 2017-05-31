@@ -10,5 +10,29 @@
 @import "components/common";
 @import "components/nav";
 @import "components/gallery";
+@import "components/carousel";
 
 /* Website specific: Put custom code here */
+.carousel-container {
+	width: 100%;
+	height: 600px;
+}
+
+.carousel-slide {
+	height:100%;
+	div { height: 100%;}
+	h1 { margin: 0;}
+}
+
+#slide1 {
+	background: red;
+}
+#slide2 {
+	background: green;
+}
+#slide3 {
+	background: blue;
+}
+#slide4 {
+	background: pink;
+}
