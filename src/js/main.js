@@ -33,10 +33,10 @@ let imgUrls = [
 ];
 
 let carouselSlides = [
-  '<div id="slide1"><h1>Slide 1</h1></div>',
-  '<div id="slide2"><h1>Slide 2</h1></div>',
-  '<div id="slide3"><h1>Slide 3</h1></div>',
-  '<div id="slide4"><h1>Slide 4</h1></div>'
+  '<div id="slide1" class="flex-container"><h1 class="flex center">Slide 1</h1></div>',
+  '<div id="slide2" class="flex-container"><h1 class="flex center">Slide 2</h1></div>',
+  '<div id="slide3" class="flex-container"><h1 class="flex center">Slide 3</h1></div>',
+  '<div id="slide4" class="flex-container"><h1 class="flex center">Slide 4</h1></div>'
 ];
 
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //   document.getElementById('mount')
   // );
 
-  const element2 = <Carousel slides={carouselSlides} orientation={'horizontal'} navType={'arrows'} autoplay={true} autoplaySpeed={2000} />;
+  const element2 = <Carousel slides={carouselSlides} orientation={'horizontal'} navType={'bullets'} autoplay={true} autoplaySpeed={12000} />;
   ReactDOM.render(
     element2,
     document.getElementById('carousel-mount')

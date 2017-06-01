@@ -70,6 +70,7 @@
 		}
 
 		.bullet {
+			cursor: pointer;
 			height: 12px;
 			width: 12px;
 			border-radius: 10px;
@@ -82,6 +83,10 @@
 		}
 	}
 
+	.arrows {
+		height: 90%;
+	}
+	.bullets { height: 10%;}
 	.arrow {
 		align-items: center;
 		padding: .5em;

@@ -36,30 +36,57 @@ class CarouselNavigation extends React.Component {
 	}
 
 	render() {
-		if (this.state.navType == 'bullets') {
-			let navBulletsClassAdds = this.props.orientation == 'vertical'? 'right center' : 'bottom';
-			let navBulletsClassName = 'nav-bullets flex ' + navBulletsClassAdds;
-			return (
-				<div className='nav-controls flex-container'>
-					<div className={navBulletsClassName}>
-						{
-							(this.props.slides).map((slide,index) => {
-								return(
-									<div className={index == this.props.current? 'bullet active' : 'bullet'} onClick={()=>this.props.onClick(index)}></div>
-								)	
-							})
-						}
+		// if (this.state.navType == 'bullets') {
+		// 	let navBulletsClassAdds = this.props.orientation == 'vertical'? 'right center' : 'bottom';
+		// 	let navBulletsClassName = 'nav-bullets flex ' + navBulletsClassAdds;
+			
+		// 	return (
+		// 		<div className='nav-controls flex-container'>
+		// 			<div className={navBulletsClassName}>
+		// 				{
+		// 					(this.props.slides).map((slide,index) => {
+		// 						return(
+		// 							<div className={index == this.props.current? 'bullet active' : 'bullet'} onClick={()=>this.props.onClick(index)}></div>
+		// 						)	
+		// 					})
+		// 				}
+		// 			</div>
+		// 		</div>
+		// 	)
+		// } else if (this.state.navType == 'arrows') {
+		// 	return (
+		// 		<div className='nav-controls flex-container'>
+		// 			<div className='arrow flex left' onClick={()=>this.props.onClick(this.props.current - 1)}><i className="fa fa-chevron-left" aria-hidden="true"></i></div>
+		// 			<div className='arrow flex right center' onClick={()=>this.props.onClick(this.props.current + 1)}><i className="fa fa-chevron-right" aria-hidden="true"></i></div>	
+		// 		</div>
+		// 	)
+		// } else {
+
+		// }
+		let navBulletsClassAdds = this.props.orientation == 'vertical'? 'right center' : 'bottom';
+		let navBulletsClassName = 'nav-bullets flex ' + navBulletsClassAdds;
+		return(
+			<div>
+				{this.state.navType != 'arrows' ? (
+					<div className='nav-controls flex-container'>
+						<div className={navBulletsClassName}>
+							{
+								(this.props.slides).map((slide,index) => {
+									return(
+										<div className={index == this.props.current? 'bullet active' : 'bullet'} onClick={()=>this.props.onClick(index)}></div>
+									)	
+								})
+							}
+						</div>
 					</div>
-				</div>
-			)
-		} else if (this.state.navType == 'arrows') {
-			return (
-				<div className='nav-controls flex-container'>
-					<div className='arrow flex left' onClick={()=>this.props.onClick(this.props.current - 1)}><i className="fa fa-chevron-left" aria-hidden="true"></i></div>
-					<div className='arrow flex right center' onClick={()=>this.props.onClick(this.props.current + 1)}><i className="fa fa-chevron-right" aria-hidden="true"></i></div>	
-				</div>
-			)
-		}	
+				) : (
+					<div className='nav-controls flex-container'>
+						<div className='arrow flex left' onClick={()=>this.props.onClick(this.props.current - 1)}><i className="fa fa-chevron-left" aria-hidden="true"></i></div>
+						<div className='arrow flex right center' onClick={()=>this.props.onClick(this.props.current + 1)}><i className="fa fa-chevron-right" aria-hidden="true"></i></div>	
+					</div>
+				)}
+			</div>
+		)
 	}
 }
 
@@ -184,7 +211,7 @@ class Carousel extends React.Component {
 				<div className='inner-wrapper'>
 					{slidesHtml}
 				</div>
-				<CarouselNavigation current={current} slides={slides} navType={this.props.navType} orientaion={this.state.orientation} onClick={this.updateCurrentIndex.bind(this)} />
+				<CarouselNavigation current={current} slides={slides} navType={this.props.navType} orientation={this.state.orientation} onClick={this.updateCurrentIndex.bind(this)} />
 			</div>
 		)
 	}
