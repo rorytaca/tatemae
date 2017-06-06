@@ -235,14 +235,6 @@ body {
     width: 100%;
   }
 
-  &.left {
-    -moz-box-pack: flex-start; 
-    -ms-flex-pack: flex-start; 
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-    margin-left: 0;
-  }
-
   &.center {
     -webkit-box-align: center; 
     -moz-box-align: center;
@@ -257,6 +249,14 @@ body {
     align-self: center;
     align-content: center;
     margin: auto;
+  }
+
+  &.left {
+    -moz-box-pack: flex-start; 
+    -ms-flex-pack: flex-start; 
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    margin-left: 0;
   }
 
   &.right {

@@ -37,3 +37,127 @@ width: 100%;
 #slide4 {
 	background: pink;
 }
+
+/* Index.html */
+.nav-column {
+	width: 180px;
+	position: fixed;
+	height: 100vh;
+	left: 0;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d7d0cb+0,eadace+100 */
+	background: #d7d0cb; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d7d0cb 0%, #eadace 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #d7d0cb 0%,#eadace 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #d7d0cb 0%,#eadace 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7d0cb', endColorstr='#eadace',GradientType=0 ); /* IE6-9 */
+
+	z-index: 10;
+	padding: 20px;
+	box-sizing: border-box;
+
+	-webkit-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+
+	&.page-top {
+		left: -170px;
+
+	}
+
+	&:hover {
+		left: 0;
+	}
+
+	li { 
+		width: 100%; 
+		line-height: 100%;
+
+		a { 
+			display: inline-block;
+			color: #222; 
+			padding: .53em 0;
+			
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+
+	nav { 
+		font-size: .8em;
+		font-family: 'Source Sans Pro', sans-serif;
+		ul {
+			margin: 0px 0 3px 0;
+			padding-left: 12px;
+			font-weight: normal;
+		}
+		.logo {
+			width: 100%;
+			margin-bottom: 24px;
+		}
+	}
+}
+
+.content-column {
+	position: relative;
+	height: 1500px;
+}
+
+#main-logo {
+	width: 100px;
+	display: block;
+	margin: 0 auto;
+}
+
+.coverlet { 
+	width: 100%; 
+	height: 100vh;
+	z-index: 5;
+	margin-bottom: 110px;
+	font-family: 'Open Sans', sans-serif;
+
+	animation: .75s ease-out 0s 1 slideInFromTop;
+}
+
+h1 {
+	font-size: 1.2em;
+
+	em {
+		font-style: normal;
+		color: #D7D0CB;
+	}
+}
+
+section {
+	padding-left: 200px;
+}
+
+.git-row {
+	width: 300px;
+	margin: 0 auto;
+}
+/* animations */
+@-webkit-keyframes CoverBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes CoverBG {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes CoverBG { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

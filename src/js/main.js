@@ -48,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
   //   document.getElementById('mount')
   // );
 
-  const element2 = <Carousel slides={carouselSlides} orientation={'horizontal'} navType={'bullets'} autoplay={true} autoplaySpeed={12000} />;
-  ReactDOM.render(
-    element2,
-    document.getElementById('carousel-mount')
-  );
+  // const element2 = <Carousel slides={carouselSlides} orientation={'horizontal'} navType={'bullets'} autoplay={true} autoplaySpeed={12000} />;
+  // ReactDOM.render(
+  //   element2,
+  //   document.getElementById('carousel-mount')
+  // );
 
   //TODO:: move these to seperate file eventually
   $("body").on("click",".jump-to", function(e) {
@@ -64,6 +64,30 @@ document.addEventListener('DOMContentLoaded', function() {
   $("body").on("click",".mobile-menu-toggle", function(e) {
     $(".navigation").toggleClass("active");
   });
+
+  $(document).scroll(function() {
+      var coverletEnd = $(".coverlet").height();
+      if ($(".nav-column").hasClass("page-top")) {
+        if ($(window).scrollTop() > 100) {
+          $(".nav-column").removeClass("page-top")
+          // $(".scroll-down").fadeOut();
+        }
+      } else {
+        if ($(window).scrollTop() < 100) {
+          $(".nav-column").addClass("page-top");
+          // $(".scroll-down").fadeIn();
+        }       
+      }
+
+      var cutoff = $(window).scrollTop();
+      $('section').removeClass('top').each(function() {
+          if ($(this).offset().top > cutoff) {
+              $(this).addClass('top');
+              return false; // stops the iteration after the first one on screen
+          }
+      });
+  });
+
 });
 
 
