@@ -616,6 +616,32 @@
             <section  id="gallery">
                 <h2>Gallery</h2>
                 <div id="gallery-mount"></div>
+                <div class="code-pen">
+                    <div class="code-pen-header">
+                        <div class="button copy-to-clipboard purple">copy<span class="bubble">Copy to clipboard</span></div>
+                    </div>
+<xmp>
+    let imgUrls = [
+        'https://source.unsplash.com/3Z70SDuYs5g/800x600',
+        'https://source.unsplash.com/01vFmYAOqQ0/800x600',
+        'https://source.unsplash.com/2Bjq3A7rGn4/800x600',
+        'https://source.unsplash.com/t20pc32VbrU/800x600',
+        'https://source.unsplash.com/pHANr-CpbYM/800x600',
+        'https://source.unsplash.com/3PmwYw2uErY/800x600',
+        'https://source.unsplash.com/uOi3lg8fGl4/800x600',
+        'https://source.unsplash.com/CwkiN6_qpDI/800x600',
+        'https://source.unsplash.com/9O1oQ9SzQZQ/800x600',
+        'https://source.unsplash.com/E4944K_4SvI/800x600',
+        'https://source.unsplash.com/-hI5dX2ObAs/800x600',
+        'https://source.unsplash.com/vZlTg_McCDo/800x600'
+    ];
+    const element = <Gallery imgUrls={imgUrls} />;
+    ReactDOM.render(
+        element,
+        document.getElementById('gallery-mount')
+    );
+</xmp>
+                </div>
             </section>
 <!--             <section  id="modal">
                 <h2>Modal</h2>
