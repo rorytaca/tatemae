@@ -1,0 +1,271 @@
+/*
+ *  components/_ui.scss
+ *  
+ *  misc. ui elements.... xmp, code text, alerts, badges
+ */
+
+xmp,pre { clear: none; float: none;}
+
+.definition {
+  border: solid 1px #e2e2e2;
+  border-radius: 3px;
+  background: #f2f2f2;
+  font-size: .8em;
+  padding: .5rem;
+  margin-bottom: 2em;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  @media screen and (min-width: 768px) {
+
+  }
+}
+
+.code-pen {
+  border: solid 1px #d2d2d2;
+  border-radius: 2px;
+  background: #fcfcfc;
+  font-size: .8em;
+  font-weight: 400;
+  line-height: 145%;
+  margin-top: 1em;
+  width: 100%;
+  margin-bottom: 2em;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  .code-pen-header {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: .3em;
+    width: 100%;
+    position: relative;
+
+    border-bottom: solid 1px #d2d2d2;
+    top: 0;
+    left: 0;
+    background: #ededef;
+  }
+
+  .copy-to-clipboard {
+    float: right;
+    position: relative;
+    margin: 0;
+
+    &:hover .bubble { display: block; }
+
+    &:before {
+     font-family: FontAwesome;
+     content: '\f0c5';
+     margin-right: 5px;
+    }
+  }
+
+  .bubble {
+    display: none;
+    width: 100px;
+    position: absolute;
+    top: 42px;
+    right: 0px;
+    color: #fff;
+    font-size: .6em;
+    font-family: $primary-font;
+    text-align: center;
+    line-height: 220%;
+    padding: .6em;
+    background: #000000;
+    border-radius: 3px;
+  }
+
+  .bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 0 8px 8px;
+    border-color: #000000 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: 20px;
+    left: 50px;
+  }
+
+  xmp {
+    margin: 0;
+    padding-bottom: 2em;
+
+  }
+
+}
+
+.table-of-contents {
+  border: solid 1px #d2d2d2;
+  border-radius: 3px;
+  background: #ededef;
+  font-size: .8em;
+  padding: .5rem;
+  margin-bottom: 2em;
+  width: 300px;
+}
+
+span.file-path, span.inline-code {
+  white-space: nowrap;
+  border: solid 1px #e2e2e2;
+  border-radius: 3px;
+  background: #f2f2f2;
+  font-size: .8em;
+  padding: .2rem .6rem;
+  margin-left: 3px;
+
+  @media screen and (min-width: 768px) { 
+    font-size: .9em;
+  }
+
+}
+span.file-path:before {
+     font-family: FontAwesome;
+     content: '\f07c';
+     margin-right: 5px;
+}
+
+/* Alerts and badges */
+.alert, .badge {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  font-size: .9em;
+  border: solid 1px #ccc;
+  border-radius: 2px;
+  margin: 3px 0;
+
+  &.primary {
+    background: $ui-blue;
+    border: none;
+    color: #fff;
+  }
+  &.success {
+    background: $ui-green;
+    border: none;
+    color: #fff;
+  }
+  &.warning {
+    background: $ui-yellow;
+    border: none;
+    color: #fff;
+  }
+  &.danger {
+    background: $ui-red;
+    border: none;
+    color: #fff;
+  }
+  &.info {
+    background: $ui-grey;
+    border: none;
+    color: #fff;
+  }
+  &.purple {
+    background: $ui-purple;
+    border: none;
+    color: #fff;
+  }
+}
+
+.badge {
+  background: #fff;
+  float: right;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 0em;
+  font-size: 10px;
+  line-height: 20px;
+  border-radius: 10px;
+  margin-left: 5px;
+
+  &.white {
+    border: none;
+    color: $ui-blue;
+  }
+}
+
+/* Parallax */
+.parallax {
+  height: 100%; 
+}
+
+.parallax-bg {
+  min-height: 320px;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @media only screen and (max-device-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+  }
+}
+
+.parallax-content {
+  padding: 40px 20px;
+}
+
+.progress {
+  margin: 5px 0;
+  height: 40px;
+  width: 300px;
+  padding: 2px;
+  border-radius: 2px;
+  background: #fafafb;
+  border: solid 1px #dadadc;
+
+  .progress-bar {
+    height: 40px;
+    width: 0;
+    background: #3af;
+    border-radius: 2px;
+
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 12px;
+  }
+}
+
+.tool-tip {
+  display: block;
+  width: 100px;
+  position: relative;
+  top: 42px;
+  right: 0px;
+  color: #fff;
+  font-size: .6em;
+  font-family: $primary-font;
+  text-align: center;
+  line-height: 220%;
+  padding: .6em;
+  background: #000000;
+  border-radius: 3px;
+}
+
+.tool-tip:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 0 8px 8px;
+  border-color: #000000 transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  bottom: 20px;
+  left: 50px;
+}
+
+.tool-tip-wrapper:hover {
+  .tool-tip {
+    display: block;
+  }
+}

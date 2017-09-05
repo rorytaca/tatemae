@@ -17,6 +17,10 @@ $black: #111;
   position: relative;
   overflow: hidden;
   padding:0;
+  /*custom*/
+  padding: 4px;
+  box-sizing: border-box;
+
 }
 
 .gallery-thumbnail {

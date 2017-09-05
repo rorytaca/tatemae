@@ -1,0 +1,37 @@
+/*
+ *  components/_tables.scss
+ *  
+ *  responsive table styles
+ */
+.table-wrapper {
+	width: 100%;
+	overflow-x: auto;
+ 	border: solid 1px #ccc;
+ 	border-radius: 2px;
+	margin-bottom: 20px;
+}
+
+table {
+ 	width: 100%;
+ 	max-width: 100%;
+
+ 	thead {
+ 		text-align: left;
+ 	}
+
+ 	th, td {
+ 		padding: .75em .5em;
+ 	}
+
+ 	tbody tr {
+ 		border-top: solid 1px #ccc;
+
+ 		&:nth-of-type(odd) {
+ 			background: #f4f4f6;
+ 		}
+
+ 		&:hover {
+ 			background: #cfd6db;
+ 		}
+ 	}
+ }

@@ -9,6 +9,10 @@
 @import "components/layout";
 @import "components/common";
 @import "components/nav";
+@import "components/buttons";
+@import "components/forms";
+@import "components/tables";
+@import "components/ui";
 @import "components/gallery";
 @import "components/carousel";
 
@@ -25,7 +29,7 @@
 }
 
 #slide1 {
-width: 100%;
+	width: 100%;
 	background: red;
 }
 #slide2 {
@@ -45,21 +49,22 @@ width: 100%;
 	height: 100vh;
 	left: 0;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d7d0cb+0,eadace+100 */
-	background: #d7d0cb; /* Old browsers */
-	background: -moz-linear-gradient(top,  #d7d0cb 0%, #eadace 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #d7d0cb 0%,#eadace 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #d7d0cb 0%,#eadace 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7d0cb', endColorstr='#eadace',GradientType=0 ); /* IE6-9 */
+	background: #E5E0DD; /* Old browsers */
 
 	z-index: 10;
-	padding: 20px;
+	padding: 20px 0px;
 	box-sizing: border-box;
+	border-right: solid 1px #ccd;
 
 	-webkit-transition: all 200ms ease-in-out;
 	transition: all 200ms ease-in-out;
 
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+
 	&.page-top {
-		left: -170px;
+		left: -180px;
 
 	}
 
@@ -74,24 +79,35 @@ width: 100%;
 		a { 
 			display: inline-block;
 			color: #222; 
-			padding: .53em 0;
+			padding: .53em 20px;
 			
 			&:hover {
 				color: #fff;
 			}
 		}
+
+		&.active {
+			border-left: solid 4px #202592;
+		}
+
 	}
 
 	nav { 
-		font-size: .8em;
+		font-size: .7em;
 		font-family: 'Source Sans Pro', sans-serif;
 		ul {
 			margin: 0px 0 3px 0;
-			padding-left: 12px;
+			padding: 0;
 			font-weight: normal;
+
+			li {
+				box-sizing: border-box;
+				padding: 0em 20px;
+			}
 		}
 		.logo {
-			width: 100%;
+			width: 75%;
+			margin-left: 12.5%;
 			margin-bottom: 24px;
 		}
 	}
@@ -99,7 +115,6 @@ width: 100%;
 
 .content-column {
 	position: relative;
-	height: 1500px;
 }
 
 #main-logo {
@@ -109,17 +124,23 @@ width: 100%;
 }
 
 .coverlet { 
-	width: 100%; 
+	width: 100%;
+	box-sizing: border-box;
 	height: 100vh;
 	z-index: 5;
 	margin-bottom: 110px;
 	font-family: 'Open Sans', sans-serif;
-
-	animation: .75s ease-out 0s 1 slideInFromTop;
 }
 
 h1 {
-	font-size: 1.2em;
+	margin-top: 1em;
+	font-size: 1.5em;
+	letter-spacing: -1px;
+	font-weight: 600;
+	color: #222;
+	width: 900px;
+	padding: .3em 0;
+	text-align: center;
 
 	em {
 		font-style: normal;
@@ -128,12 +149,117 @@ h1 {
 }
 
 section {
-	padding-left: 200px;
+	padding-left: 250px;
+	padding-right: 150px;
+	padding-bottom: 50px;
+	height: auto;
+	min-height: 200px;
+	box-sizing: border-box;
+
+
+	@media screen and (max-width: 768px) {
+		padding: 0 50px 20px 50px;
+	}
+	@media screen and (max-width: 550px) {
+		padding: 0 10px 20px 10px;
+	}
+
+	h2 {
+		font-size: 1.4em;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	p {
+		font-family: 'Open Sans', sans-serif;
+		font-size: .8em;
+		line-height: 180%;
+
+		&.large { font-size: 1em;}
+	}
+}
+
+#layouts {
+	.col, .flex { padding: 3px; }
+	.grid-demo-box {
+	  float: left;
+	  width: 100%;
+	  box-sizing: border-box;
+	  padding: .5em 0;
+	  background: #22222a;
+	  border-radius: 3px;
+	  color: #fff;
+	  font-weight: 600;
+
+	  p {
+	  	text-align: center;
+	  	font-size: .8em;
+	  	margin: 1em 0;
+	  }
+	}
+}
+
+.flex-grid-demo {
+	width: 75%;
+	margin-left: 12.5%;
+	background: #ccccdd;
+	min-height: 100px;
+	margin-bottom: 20px;
+
+	.flex {
+
+	}
+
+	.grid-demo-box {
+		background: #3af;
+		padding: 1em;
+	}
+	&.two {
+		height: 150px;
+		.flex { width: 30%; }
+	}
+	&.three {
+		height: 150px;
+	}
 }
 
 .git-row {
+	text-align: center;
 	width: 300px;
 	margin: 0 auto;
+
+	&.left {
+		text-align: left;
+	}
+}
+
+#demo-form {
+	max-width: 400px;
+}
+
+.demo-parallax {
+	min-height: 600px;
+	height: auto;
+	background: #fafafc;
+
+	h1 {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+#parallax-1 {
+	background-image: url('/img/misc/desert.jpg');
+}
+#parallax-2 {
+	background-image: url('/img/misc/wave.jpg');
+}
+#parallax-3 {
+	background-image: url('/img/misc/desert.jpg');
+}
+
+.demo-nav {
+	a { color: #222; }
+	margin-bottom: 3em;
 }
 /* animations */
 @-webkit-keyframes CoverBG {
@@ -146,6 +272,7 @@ section {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+
 @keyframes CoverBG { 
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -160,4 +287,12 @@ section {
   100% {
     transform: translateY(0);
   }
+}
+
+@keyframes fadeInStart {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;  }
 }

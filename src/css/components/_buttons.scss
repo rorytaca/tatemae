@@ -1,0 +1,76 @@
+/*
+ *  components/_buttons.scss
+ *  
+ *  buttons and containers
+ */
+
+.button-row {
+	
+	width: 100%;
+	display: inline;
+	vertical-align: text-top;
+}
+
+
+.button, button {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 200%;
+	font-size: 12px;
+	$font-family: $primary-font;
+	margin: .5rem 0;
+	padding: .6rem 2rem;
+	border: solid 1px #888;
+	background: #fff;
+	border-radius: 2px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: #222;
+	font-weight: 400;
+	cursor: pointer;
+
+	&.small { font-size: 10px; padding: .4rem 1.5rem}
+	&.large {font-size: 18px; padding: .8rem 2.5rem;}
+	&.x-large { font-size: 22px; padding: 1rem 3rem; }
+	&.jumbo {font-size: 28px; padding: 1.2rem 3.5rem; }
+
+	&.primary {
+		background: $ui-blue;
+		border: none;
+		color: #fff;
+		&:hover { background: $ui-blue-dark; }
+	}
+	&.success {
+		background: $ui-green;
+		border: none;
+		color: #fff;
+		&:hover { background: $ui-green-dark; }
+	}
+	&.warning {
+		background: $ui-yellow;
+		border: none;
+		color: #fff;
+		&:hover { background: $ui-yellow-dark; }
+	}
+	&.danger {
+		background: $ui-red;
+		border: none;
+		color: #fff;
+		&:hover { background: $ui-red-dark; }
+	}
+	&.info {
+		background: $ui-grey;
+		border: none;
+		color: #fff;
+		&:hover { background: $ui-grey-dark; }
+	}
+	&.purple {
+		background: $ui-purple;
+		border: none;
+		color: #fff;
+		&:hover { background: $ui-purple-dark; }
+	}
+}
+

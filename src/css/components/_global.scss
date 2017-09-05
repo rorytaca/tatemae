@@ -7,11 +7,26 @@
 /* page */
  $page-padding: 10%;
 
-/* Gris */
-$col-padding: 0 5px;
+/* Grids */
+ $col-padding: 0 5px;
 
 /* tyopgraphy */
+$primary-font: 'Source Sans Pro', sans-serif;
  $font-size: 16px;
 
 /* Misc. */
  $transition: all .25s ease-in-out;
+
+/* UI Colors */
+ $ui-blue: #137DBF;
+ $ui-blue-dark: #0d5785;
+ $ui-green: #3CC96B;
+ $ui-green-dark: #2A8C4A;
+ $ui-yellow: #FFDB4A;
+ $ui-yellow-dark: #e5c230;
+ $ui-red: #DD432A;
+ $ui-red-dark: #b03521;
+ $ui-grey: #B1B8B8;
+ $ui-grey-dark: #7b8080;
+ $ui-purple: #645E7D;
+ $ui-purple-dark: #464157;

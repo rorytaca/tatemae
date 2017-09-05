@@ -1,0 +1,100 @@
+.input-group.normal {
+	label {
+		float: left;
+		margin-bottom: 5px;
+	}
+	input,textarea {
+		float: left;
+		height: 42px;
+		box-sizing: border-box;
+		width: 100%;
+		font-size: .9em;
+		padding: .2em;
+	    border: 1px solid #ccc;
+	    border-radius: 5px;
+		margin-bottom: 10px;
+		background: #fff;
+
+		&:focus {
+			border: solid 1px #33aaff;
+			outline: none;
+		}
+	}
+	textarea {
+		min-height: 92px;
+	}
+}
+
+.input-group.encapsulated {
+	float: left;
+	min-height: 48px;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	padding: .2em;
+
+	label {
+		width: 100%;
+		font-size: .6em;
+		color: #222;
+		margin-bottom: 8px;
+		text-transform: uppercase;
+	}
+
+	input, textarea {
+		float: left;
+		width: 100%;
+		border: none;
+		outline: 0;
+		font-size: .9em;
+		margin-top: 0px;
+		margin-left: -1px;
+
+
+	}
+
+
+	textarea {
+		min-height: 92px;
+		background: #fff;
+		border-radius: 2px;
+		box-sizing: border-box;
+		margin-bottom: 10px;
+		padding: .2em;
+	}
+}
+
+select {
+	float: left;
+	height: 42px;
+	box-sizing: border-box;
+	width: 100%;
+	font-size: .9em;
+	padding: .2em;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+	margin-bottom: 10px;
+	background: #fff;
+	outline: none;
+
+	&:focus {
+		border: solid 1px #33aaff;
+		
+	}
+}
+
+.submit {
+	padding: 1.5em;
+	width: 100%;
+	color: #fff;
+	font-size: .8em;
+	border: none;
+	border-radius: 2px;
+	background: #284f6e;
+
+	&:hover {
+		background: #3d607c;
+	}
+}
